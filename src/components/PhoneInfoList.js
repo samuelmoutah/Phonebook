@@ -3,11 +3,17 @@ import PhoneInfo from './PhoneInfo'
 
 class PhoneInfoList extends Component {
     render() {
-        const { data } = this.props
+        const { data, onRemove } = this.props //from app.js
 
         if(!data) return null
 
-        const list = data.map(info => (<PhoneInfo info={info} key={info.id} />))
+        const list = data.map(info => (
+            <PhoneInfo 
+                onRemove={onRemove}
+                infor={info} 
+                key={info.id} 
+            />
+        ))
         return (
             <div>
                 {list}

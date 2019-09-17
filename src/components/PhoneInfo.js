@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 
 class PhoneInfo extends Component {
+
+    handleRemove = () => {
+        const { infor, onRemove} = this.props//from phoneinfolist.js
+        onRemove(infor.id)
+    }
+
     render() {
-        const { name, phone, id } = this.props.info
+        const { name, phone } = this.props.infor
 
         const style = {
             border: '1px solid black',
@@ -13,6 +19,7 @@ class PhoneInfo extends Component {
             <div style={style}>
                 <div><b>{name}</b></div>
                 <div>{phone}</div>
+                <button onClick={this.handleRemove}>Remove</button>
             </div>
         );
     }
